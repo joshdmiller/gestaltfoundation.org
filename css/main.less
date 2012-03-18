@@ -1,0 +1,39 @@
+// MAIN STYLESHEET FOR GESTALTFOUNDATION.ORG
+// -----------------------------------
+
+// BOOTSTRAP INCLUSIONS
+// --------------------
+
+@import "bootstrap-variables.less";
+@import "bootstrap-mixins.less";
+@import "bootstrap-reset.less";
+@import "bootstrap-type.less";
+
+// GRID LAYOUT
+// -----------
+
+// Fixed (940px)
+#grid > .core(@gridColumnWidth, @gridGutterWidth);
+
+// Fluid (940px)
+#grid > .fluid(@fluidGridColumnWidth, @fluidGridGutterWidth);
+
+
+// Layouts
+// Fixed-width and fluid (with sidebar) layouts
+// --------------------------------------------
+
+
+// Container (centered, fixed-width layouts)
+.container {
+  .container-fixed();
+}
+
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-left: @gridGutterWidth;
+  padding-right: @gridGutterWidth;
+  .clearfix();
+}
+
+
