@@ -8,6 +8,19 @@
 @import "bootstrap-mixins.less";
 @import "bootstrap-reset.less";
 @import "bootstrap-type.less";
+@import "bootstrap-navs.less";
+@import "bootstrap-navbar.less";
+
+// IMPORTED FONTS
+// --------------
+
+@import "http://fonts.googleapis.com/css?family=Fredericka+the+Great:400normal&subset=all";
+
+// VARIABLE OVERRIDES
+// ------------------
+
+@navbarHeight: 40px;
+@footerHeight: 30px;
 
 // GRID LAYOUT
 // -----------
@@ -36,4 +49,123 @@
   .clearfix();
 }
 
+// NAVBAR
+// ------
+
+.navbar {
+
+    border-bottom: 5px solid @green;
+
+    .brand {
+        font-size: @navbarHeight - 5;
+        line-height: @navbarHeight;
+        font-family: "Fredericka the Great";
+        text-decoration: none;
+        color: @green;
+    }
+
+    .brand:hover, .brand:active {
+        color: @white;
+    }
+
+    .nav {
+        float: right;
+        display: block;
+
+        li {
+            display: block;
+            float: left;
+            margin-left: 10px;
+
+            a {
+                float: none;
+                line-height: @navbarHeight;
+                font-weight: bold;
+                text-shadow: 0 1px 3px rgba(0,0,0,.25);
+            }
+
+            a:hover, a:active {
+            }
+        }
+
+        li.active {
+            a, a:hover, a:active {
+                background: none;
+            }
+        }
+    }
+}
+
+// MAIN CONTENT AREA
+// -----------------
+
+.main {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    #gradient > .radial(@grayLighter, @grayLight);
+
+    padding-top: @navbarHeight + 25 + 10;
+    padding-bottom: @footerHeight + 10;
+}
+
+// FOOTER
+// ------
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1030;
+    margin: 0px;
+    height: @footerHeight;
+    display: block;
+    overflow: none;
+
+    .footer-inner {
+        padding-left:  20px;
+        padding-right: 20px;
+        #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+        @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+        .box-shadow(@shadow);
+        display: block;
+        overflow: none;
+        height: @footerHeight;
+    }
+
+    .copyright {
+        color: @gray;
+        font-size: 12px;
+        line-height: @footerHeight;
+        float: left;
+    }
+
+    .social {
+        .nav {
+            float: right;
+            display: block;
+
+            li {
+                display: block;
+                float: left;
+                margin-left: 10px;
+
+                a {
+                    float: none;
+                    line-height: @footerHeight;
+                    text-decoration: none;
+                    color: @gray;
+                }
+
+                a:hover, a:active {
+                    background: none;
+                }
+            }
+        }
+    }
+}
 
